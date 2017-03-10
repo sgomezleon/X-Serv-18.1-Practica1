@@ -52,7 +52,7 @@ class webApp:
             print 'Waiting for connections'
             (recvSocket, address) = mySocket.accept()
             print 'HTTP request received (going to parse and process):'
-            request = recvSocket.recv(2048)
+            request = recvSocket.recv(2048).decode('utf-8')
             print request
             parsedRequest = self.parse(request)
             (returnCode, htmlAnswer) = self.process(parsedRequest)
